@@ -26,4 +26,4 @@ ENV DB_PORT=5432
 ENV DB_NAME=keyman
 ENV PORT=9999
 COPY --from=build /home/gradle/src/build/libs/*.jar /app/ktor-keyman-server.jar
-ENTRYPOINT ["java","-port","9999","-jar","/app/ktor-keyman-server.jar"]
+ENTRYPOINT ["java","-jar","/app/ktor-keyman-server.jar"]
