@@ -17,7 +17,7 @@ WORKDIR /home/gradle/src
 RUN gradle buildFatJar --no-daemon
 
 # Stage 3: Create the Runtime Image
-FROM openjdk:22 AS runtime
+FROM amazoncorretto:23 AS runtime
 EXPOSE 9999
 RUN mkdir /app
 # Needed environment variables for database connection
@@ -26,4 +26,4 @@ ENV DB_PORT=5432
 ENV DB_NAME=keyman
 ENV PORT=9999
 COPY --from=build /home/gradle/src/build/libs/*.jar /app/ktor-keyman-server.jar
-ENTRYPOINT ["java","-jar","-port","9999","/app/ktor-keyman-server.jar"]
+ENTRYPOINT ["java","-port","9999","-jar","/app/ktor-keyman-server.jar"]
