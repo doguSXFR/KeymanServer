@@ -21,7 +21,7 @@ repositories {
 
 ktor {
     docker {
-        jreVersion.set(JavaVersion.VERSION_23)
+        jreVersion.set(JavaVersion.VERSION_22)
         localImageName.set("keyman-server")
         imageTag.set("0.0.1-preview")
         portMappings.set(
