@@ -16,6 +16,8 @@ class DatabaseService(private val config: ApplicationConfig) {
         val url = config.property("storage.jdbcURL").getString()
         val user = config.property("storage.user").getString()
         val password = config.property("storage.password").getString()
+        val jiggle = config.property("storage.jiggle").getString()
+        logger.debug("Jiggle: $jiggle")
 
         hikariConfig.jdbcUrl = url
         hikariConfig.username = user
