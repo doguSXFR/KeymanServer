@@ -62,7 +62,6 @@ dependencies {
     implementation(libs.mysql.connector.java)
     implementation(libs.postgresql)
     implementation(libs.spring.security.core)
-    implementation(libs.ktor.server.config.yaml)
     implementation(libs.hayden.khealth)
     implementation("com.impossibl.pgjdbc-ng", "pgjdbc-ng", "0.8.9")
     implementation(libs.ktor.server.request.validation)
