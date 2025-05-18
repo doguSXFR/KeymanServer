@@ -20,5 +20,9 @@ RUN gradle buildFatJar --no-daemon
 FROM amazoncorretto:22 AS runtime
 EXPOSE 9999
 RUN mkdir /app
+# Needed environment variables for database connection
+ENV DB_HOST=postgres
+ENV DB_PORT=5432
+ENV DB_NAME=keyman
 COPY --from=build /home/gradle/src/build/libs/*.jar /app/ktor-keyman-server.jar
 ENTRYPOINT ["java","-jar","/app/ktor-keyman-server.jar"]

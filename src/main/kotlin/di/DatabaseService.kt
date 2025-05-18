@@ -3,6 +3,7 @@ package com.wave.di
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import io.ktor.server.config.ApplicationConfig
+import io.ktor.server.engine.applicationEnvironment
 import org.jetbrains.exposed.sql.Database
 
 class DatabaseService(private val config: ApplicationConfig) {

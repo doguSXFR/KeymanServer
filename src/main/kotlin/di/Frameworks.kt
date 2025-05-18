@@ -10,6 +10,7 @@ import org.koin.dsl.module
 import org.koin.ktor.plugin.Koin
 import org.koin.logger.slf4jLogger
 import com.wave.database.UserService
+import io.ktor.server.config.ApplicationConfig
 import io.ktor.server.routing.RoutingCall
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -19,7 +20,8 @@ fun Application.configureFrameworks() {
         slf4jLogger()
         modules(
             module {
-                DatabaseService(environment.config)
+                single<ApplicationConfig> { environment.config }
+                singleOf(::DatabaseService)
             },
             module {
                 singleOf(::UserService)
